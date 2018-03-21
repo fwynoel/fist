@@ -10,8 +10,13 @@
 <% 
 	String user = request.getParameter("user");
 	Cookie cookie = new Cookie("mrCookie",user+"#"+new java.util.Date().toLocaleString());	
-	cookie.setMaxAge(60);
+	cookie.setMaxAge(20);
 	response.addCookie(cookie);
+	
+	String passwd = request.getParameter("passwd");
+	if(!user.equals("fwy")||!passwd.equals("123")){
+		response.sendRedirect("errpage.jsp");
+	}
 %>
 <script type="text/javascript">windows.location.href="index.jsp"</script>
 </body>
