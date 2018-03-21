@@ -39,7 +39,7 @@ try{
 	}
 	if("".equals(user) && "".equals(date1)){
 %>
-	游客您好，欢迎初次光临,test github！
+	游客您好，欢迎初次光临,test github 哈哈！
 	<form action="deal.jsp" method = "post">
 		姓名：<input name="user" type="text" value="">
 		<input type="submit" value="确定">
