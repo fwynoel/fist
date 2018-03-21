@@ -8,7 +8,7 @@
 <html>
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=GBK">
-<title>cook ��¼</title>
+<title>cook 登录</title>
 </head>
 <body>
 <% 
@@ -39,15 +39,15 @@ try{
 	}
 	if("".equals(user) && "".equals(date1)){
 %>
-	�ο����ã���ӭ���ι��٣�
+	游客您好，欢迎初次光临,test github！
 	<form action="deal.jsp" method = "post">
-		������<input name="user" type="text" value="">
-		<input type="submit" value="ȷ��">
+		姓名：<input name="user" type="text" value="">
+		<input type="submit" value="确定">
 	</form>	
 <%
 	}else{
 %>		
-	��ӭ <b> <%=user %> </b>�ٴι��٣�<br>
+	欢迎 <b> <%=user %> </b>再次光临！<br>
 <% 
 	}
 %>	
