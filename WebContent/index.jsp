@@ -42,6 +42,7 @@ try{
 	游客您好，欢迎初次光临,test github ！
 	<form action="deal.jsp" method = "post">
 		姓名：<input name="user" type="text" value="">
+		密码：<input name="passwd" type="password" value="">
 		<input type="submit" value="确定">
 	</form>	
 <%
