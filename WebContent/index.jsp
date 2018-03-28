@@ -51,7 +51,10 @@ try{
 	欢迎 <b> <%=user %> </b>再次光临！<br>
 <% 
 	}
-%>	
-	
+%>
+在线<%=session.getAttribute("userNum") %>人	
+<a href="errpage.jsp">注销</a>
+session 周期：<%=session.getMaxInactiveInterval() %>	
+
 </body>
 </html>
