@@ -40,7 +40,7 @@ try{
 	}
 	if("".equals(user) && "".equals(date1)){
 %>
-	游客您好，欢迎初次光临,test github 哈哈哈哈哈！
+	游客您好，欢迎初次光临,test github ！
 	<form action="deal.jsp" method = "post">
 		姓名：<input name="user" type="text" value="">
 		密码：<input name="passwd" type="password" value="">
@@ -52,7 +52,10 @@ try{
 	欢迎 <b> <%=user %> </b>再次光临！<br>
 <% 
 	}
-%>	
-	
+%>
+在线<%=session.getAttribute("userNum") %>人	
+<a href="errpage.jsp">注销</a>
+session 周期：<%=session.getMaxInactiveInterval() %>	
+
 </body>
 </html>

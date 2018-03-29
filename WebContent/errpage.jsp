@@ -9,8 +9,10 @@
 <body>
 用户名或者密码错误！
 <%
-	response.setHeader("refresh", "5;URL=index.jsp");
+	session.invalidate();
+//	response.setHeader("refresh", "5;URL=index.jsp");
 %>
-come here ?
+已经退出,<a href="index.jsp">重新登录</a>
+
 </body>
 </html>
