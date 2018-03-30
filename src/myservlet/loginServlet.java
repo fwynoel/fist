@@ -2,6 +2,10 @@ package myservlet;
 
 import java.io.IOException;
 import java.io.PrintWriter;
+import java.sql.DriverManager;
+import java.sql.Connection;
+import java.sql.ResultSet;
+import java.sql.SQLException;
 
 import java.sql.DriverManager;
 import java.sql.Connection;
@@ -39,6 +43,7 @@ public class loginServlet extends HttpServlet {
 		response.getWriter().append("Served at: ").append(request.getContextPath());
 		PrintWriter out =  response.getWriter();
 		out.append("USER_NAME:"+request.getParameter("userName"));
+<<<<<<< HEAD
 		out.flush();
 		//DriverManager.registerDriver(new oracle.jdbc.OracleDriver());
 		//DriverManager.registerDriver(new oracle.jdbc.OracleDriver());
@@ -46,6 +51,41 @@ public class loginServlet extends HttpServlet {
 		//String driverName="com.mysql.jdbc.Driver";
 		Class.forName("com.mysql.jdbc.Driver");
 
+=======
+		try {
+			Class.forName("com.mysql.jdbc.Driver");
+			String dburl = this.getServletConfig().getInitParameter("dburl");
+			String url="jdbc:mysql://localhost:3306/"+dburl;
+			//String dbname="root";
+			//String password="fwynoel";
+			String dbname = getServletConfig().getInitParameter("dbname");
+			String password = getServletConfig().getInitParameter("password");
+			
+			String init_param = getServletConfig().getInitParameter("dbname");
+	        String init_param1 = getServletConfig().getServletContext().getInitParameter("dbname");
+	        String init_param2 = getServletContext().getInitParameter("dbname");
+			
+	        System.out.println("dburl:"+dburl);
+			System.out.println("dbname:"+dbname);
+			System.out.println("password:"+password);
+			System.out.println("init_param:"+init_param);
+			System.out.println("init_param1:"+init_param1);
+			System.out.println("init_param2:"+init_param2);
+			Connection conn = DriverManager.getConnection(url,dbname,password) ;
+			if(conn != null){
+				out.println("success!");
+			}else{
+				out.println("fail!");
+			}
+			out.flush();
+		} catch (ClassNotFoundException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		} catch (SQLException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+>>>>>>> 3b5c4d480fa4e98a989dfeb0be1e7cb24688bf34
 	}
 
 	/**
