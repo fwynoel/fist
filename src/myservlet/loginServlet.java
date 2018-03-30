@@ -43,23 +43,17 @@ public class loginServlet extends HttpServlet {
 		response.getWriter().append("Served at: ").append(request.getContextPath());
 		PrintWriter out =  response.getWriter();
 		out.append("USER_NAME:"+request.getParameter("userName"));
-<<<<<<< HEAD
-		out.flush();
-		//DriverManager.registerDriver(new oracle.jdbc.OracleDriver());
-		//DriverManager.registerDriver(new oracle.jdbc.OracleDriver());
-		//Class.forName("oracle.jdbc.driver.OracleDriver");  
-		//String driverName="com.mysql.jdbc.Driver";
-		Class.forName("com.mysql.jdbc.Driver");
-
-=======
+		
 		try {
-			Class.forName("com.mysql.jdbc.Driver");
+			//Class.forName("com.mysql.jdbc.Driver");
+			Class.forName("oracle.jdbc.driver.OracleDriver");
 			String dburl = this.getServletConfig().getInitParameter("dburl");
-			String url="jdbc:mysql://localhost:3306/"+dburl;
-			//String dbname="root";
-			//String password="fwynoel";
-			String dbname = getServletConfig().getInitParameter("dbname");
-			String password = getServletConfig().getInitParameter("password");
+			//String url="jdbc:mysql://localhost:3306/"+dburl;
+			String url = "jdbc:oracle:thin:@130.71.1.81:1521:ngact";
+			String dbname="uop_act1";  //"root";
+			String password="abcd1234"; //"fwynoel";
+			//String dbname = getServletConfig().getInitParameter("dbname");
+			//String password = getServletConfig().getInitParameter("password");
 			
 			String init_param = getServletConfig().getInitParameter("dbname");
 	        String init_param1 = getServletConfig().getServletContext().getInitParameter("dbname");
@@ -71,21 +65,24 @@ public class loginServlet extends HttpServlet {
 			System.out.println("init_param:"+init_param);
 			System.out.println("init_param1:"+init_param1);
 			System.out.println("init_param2:"+init_param2);
+			
 			Connection conn = DriverManager.getConnection(url,dbname,password) ;
+			//Connection conn = DriverManager.getConnection(url,"uop_act1","abcd1234") ;
+
 			if(conn != null){
 				out.println("success!");
 			}else{
 				out.println("fail!");
 			}
+			
 			out.flush();
 		} catch (ClassNotFoundException e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
-		} catch (SQLException e) {
+		} catch (Exception e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
 		}
->>>>>>> 3b5c4d480fa4e98a989dfeb0be1e7cb24688bf34
 	}
 
 	/**

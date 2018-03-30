@@ -22,8 +22,8 @@ try{
 }
 */
 %>
-<jsp:useBean id="mycount" class="com.lyq.bean.myCount" scope="application"></jsp:useBean>
-你是第<%= mycount.plus() %>位来访者！  
+<jsp:useBean id="mycount1" class="com.lyq.bean.myCount" scope="application"></jsp:useBean>
+你是第<%= mycount1.plus() %>位来访者！  
 <!--jsp:forward page="deal.jsp"/-->
 <% 
 	Cookie[] cookies = request.getCookies();
